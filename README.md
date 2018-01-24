@@ -18,7 +18,7 @@ All entries must obey the following conventions:
 At the start of each file, there must be a line that describes when the entry
 was written, in the following format:
 
-```md
+``` markdown
 > Written at XX:YY PM
 ```
 
