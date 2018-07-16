@@ -5,12 +5,17 @@
 
 (def default-dir "./entries")
 
+(defn get-date-paths
+  "Obtains all File objects in directory"
+  [dir]
+  (->> (file-seq (clojure.java.io/file dir))
+       rest))
+
 (defn get-dates
   "Obtains all dates where things are entered"
   [dir]
   (->>
-    (file-seq (clojure.java.io/file dir))
-    rest
+    (get-date-paths dir)
     (map #(-> (.getName %)
               (string/split #"\.")
               first))

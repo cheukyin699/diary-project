@@ -1,9 +1,10 @@
 (ns jp.controllers.entry
-  (:require [compojure.core :refer [defroutes GET]]))
+  (:require [compojure.core :refer [defroutes GET]]
+            [jp.views.entry :as entry]))
 
 (defn entry-page
-  [req]
-  "HI")
+  [date]
+  (entry/layout date))
 
 (defroutes entry-routes
-  (GET "/:date" [] entry-page))
+  (GET "/:date" [date] (entry-page date)))
